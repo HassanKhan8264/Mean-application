@@ -19,6 +19,30 @@ async function getAllProducts(req, res) {
       res.status(500).json({ err: 'internal server error' })
     }
   }
+  async function getproductById(req, res) {
+    try {
+      let id = req.params.id;
+      let sql = 'SELECT * FROM product WHERE id = ?';
+      let product = await query(pool1, sql, [id]);
+  
+      if (product.length > 0) { // Fix the typo: "length" instead of "lenght"
+        res.send({
+          message: 'product found',
+          data: product,
+        });
+      } else {
+        console.log('product not found');
+        res.status(404).json({ error: 'product not found' }); // Use "error" instead of "err" for consistency
+      }
+  
+    } catch (err) {
+      console.log('Something went wrong');
+      res.status(500).json({ error: 'Internal server error' }); // Set the proper status code for the error response
+    }
+  }
+
+
   module.exports = {
-    getAllProducts
+    getAllProducts,
+    getproductById
 }

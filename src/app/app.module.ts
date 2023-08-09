@@ -1,3 +1,4 @@
+import { FooterComponent } from './components/footer/footer.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,7 +8,16 @@ import { UserComponentComponent } from './components/user-component/user-compone
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
-import { MainContentComponent } from './components/main-content/main-content.component';
+import { ProductsComponent } from './components/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddProductsComponent } from './components/add-products/add-products.component';
+import { AddUsersComponent } from './components/add-users/add-users.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule, MatIconButton } from '@angular/material/button'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -16,11 +26,24 @@ import { MainContentComponent } from './components/main-content/main-content.com
     DashboardComponent,
     SidebarComponent,
     HeaderComponent,
-    MainContentComponent
+    FooterComponent,
+    ProductsComponent,
+    AddProductsComponent,
+    AddUsersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
