@@ -68,7 +68,7 @@
                         <button mat-icon-button (click)="imageInput.click()">
                             <mat-icon>image</mat-icon>
                         </button>
-                        <input type="file" formControlName="image" #imageInput (change)="onImageChange($event)">
+                        <input type="file" formControlName="image" #imageInput (change)="onImageChange($event)" accept="image/*">
                     </div>
                     <div class="form-group">
                         <mat-form-field>

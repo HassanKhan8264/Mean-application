@@ -9,10 +9,20 @@ export class DashboardComponent {
   products: any[] = []
   users: any[] = []
 
+  arrayOfObjects = [
+    { id: 1, name: '1' },
+    { id: 2, name: '2' },
+    { id: 3, name: '3' },
+    { id: 4, name: '4' },
+    // Add more objects as needed
+  ];
+
 
   constructor(private NetworkService: NetworkService) { }
 
   ngOnInit() {
+
+
     this.fetchProducts();
     this.fecthUsers();
   }

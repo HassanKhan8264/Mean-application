@@ -10,11 +10,12 @@ import { NetworkService } from '../network.service'
 export class AddProductsComponent {
   productForm!: FormGroup;
   selectedproduct:any
+  selectedImage: any;
 
   @Input() products : any
   constructor(private NetworkService: NetworkService, private fb: FormBuilder) {}
 
- 
+
   ngOnInit() {
     this.fetchProducts();
     this.productForm = this.fb.group({
@@ -24,7 +25,7 @@ export class AddProductsComponent {
       description: ['', Validators.required]
     });
   }
-  
+
   fetchProducts() {
     this.NetworkService.getProducts().subscribe((res: any) => {
       this.products = res.data;
@@ -35,28 +36,35 @@ export class AddProductsComponent {
   onSubmit() {
     if (this.productForm.valid) {
       console.log('form values',this.productForm.value);
-      
-    }
-  }
-  selectedImage: string | null = null;
+     let data = this.productForm.value
+        this.NetworkService.addProduct(data).subscribe((res: any) => {
+          // this.users = res.data;
+          console.log('products', res);
 
-  onImageChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.selectedImage = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        })
+
     }
   }
+
+
+onImageChange(event: any) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.selectedImage = e.target.result; // Convert the image to base64 and store it
+    };
+    reader.readAsDataURL(file); // Read the file as a data URL
+  }
+  console.log("image", file);
+}
   selectProductById(productId: any) {
     const id = productId.id;
 
     this.NetworkService.getProductsById(id).subscribe(
       (res: any) => {
         console.log('res',res.data[0].name);
-        
+
         if (res.data.length > 0) {
           const selectedProduct = res.data[0];
           this.productForm.patchValue({

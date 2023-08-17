@@ -13,11 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddProductsComponent } from './components/add-products/add-products.component';
 import { AddUsersComponent } from './components/add-users/add-users.component';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule, MatIconButton } from '@angular/material/button'; 
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { ObjectComponent } from './components/object/object.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
     FooterComponent,
     ProductsComponent,
     AddProductsComponent,
-    AddUsersComponent
+    AddUsersComponent,
+    ObjectComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +44,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
-  
+    MatIconModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

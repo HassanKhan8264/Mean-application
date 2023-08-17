@@ -11,6 +11,9 @@ export class NetworkService {
 
   constructor(private http: HttpClient) {}
 
+  addProduct(data:any) {
+    return this.http.post(`${this.apiUrl}/addProduct`,data);
+  }
   getProducts() {
     return this.http.get(`${this.apiUrl}/products`);
   }

@@ -9,10 +9,10 @@ export class UserComponentComponent {
 @Input() users:any
 
 ngOnInit(){
-  console.log('input',this.users);
-  console.log('input',this.users.username);
+  // console.log('input',this.users);
+  // console.log('input',this.users.username);
 
-  
+
 }
 
 }
