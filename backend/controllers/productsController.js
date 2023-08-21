@@ -1,32 +1,6 @@
 const { query, pool1 } = require('../db')
-const multer = require('multer');
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  },
-});
-
-const upload = multer({ storage });
- function addProduct(req, res) {
-
-    const { name, price, description } = req.body;
-    const image = req.file ? req.file.filename : null;
 
 
-    const sql = 'INSERT INTO product (name, price, description, image) VALUES (?, ?, ?, ?)';
-    pool1.query(sql, [name, price, description, image], (err, result) => {
-    if (err) {
-      console.error('Database error:', err);
-      res.status(500).json({ error: 'Internal server error' });
-    } else {
-      res.status(201).json({ message: 'Product added successfully' });
-    }
-  });
-
-}
 
 
 async function getAllProducts(req, res) {
@@ -86,8 +60,7 @@ async function getProductById(req, res) {
 // }
 
 module.exports = {
-  addProduct,
-  upload,
+
   getAllProducts,
   getProductById
 }

@@ -6,8 +6,11 @@ import { NetworkService } from '../network.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+
+
   products: any[] = []
   users: any[] = []
+  isShow = true
 
   arrayOfObjects = [
     { id: 1, name: '1' },
@@ -18,9 +21,11 @@ export class DashboardComponent {
   ];
 
 
-  constructor(private NetworkService: NetworkService) { }
+  constructor(private NetworkService: NetworkService) {
 
+  }
   ngOnInit() {
+
 
 
     this.fetchProducts();

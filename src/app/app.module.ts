@@ -19,7 +19,7 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { ObjectComponent } from './components/object/object.component';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,8 @@ import { ObjectComponent } from './components/object/object.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    ScrollingModule
 
   ],
   providers: [],

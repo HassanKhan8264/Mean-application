@@ -1,1 +1,6 @@
 <router-outlet></router-outlet>
+<cdk-virtual-scroll-viewport style="border: 1px solid red; height: 200px;" itemSize="50" class="item-list" *ngIf="items.length > 0">
+  <div style="border: 1px solid red;" *cdkVirtualFor="let item of items; let i = index">
+    item{{ item }}
+  </div>
+</cdk-virtual-scroll-viewport>

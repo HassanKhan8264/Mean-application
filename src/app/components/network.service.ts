@@ -11,16 +11,40 @@ export class NetworkService {
 
   constructor(private http: HttpClient) {}
 
+  // products apis
+
   addProduct(data:any) {
     return this.http.post(`${this.apiUrl}/addProduct`,data);
   }
   getProducts() {
     return this.http.get(`${this.apiUrl}/products`);
   }
-  getUsers() {
-    return this.http.get(`${this.apiUrl}/users`);
-  }
   getProductsById(id:any){
     return this.http.get(`${this.apiUrl}/product/${id}`);
   }
+  deleteProductById(id:any){
+    return this.http.delete(`${this.apiUrl}/product/${id}`);
+  }
+
+
+  //  User apis
+  getUsers() {
+    return this.http.get(`${this.apiUrl}/users`);
+  }
+  addUser(data:any) {
+    return this.http.post(`${this.apiUrl}/addUser`,data);
+  }
+  getUserById(id:any){
+    return this.http.get(`${this.apiUrl}/user/${id}`);
+  }
+
+  deleteUserById(id:any){
+    return this.http.delete(`${this.apiUrl}/user/${id}`);
+  }
+
+  updateUserById(id:any){
+    return this.http.get(`${this.apiUrl}/user/${id}`);
+  }
+
+
 }

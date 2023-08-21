@@ -12,7 +12,7 @@ export class AddProductsComponent {
   selectedproduct:any
   selectedImage: any;
 
-  @Input() products : any
+  products : any [] = []
   constructor(private NetworkService: NetworkService, private fb: FormBuilder) {}
 
 
@@ -47,17 +47,7 @@ export class AddProductsComponent {
   }
 
 
-onImageChange(event: any) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.selectedImage = e.target.result; // Convert the image to base64 and store it
-    };
-    reader.readAsDataURL(file); // Read the file as a data URL
-  }
-  console.log("image", file);
-}
+
   selectProductById(productId: any) {
     const id = productId.id;
 

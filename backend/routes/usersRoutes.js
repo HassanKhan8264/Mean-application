@@ -6,7 +6,7 @@ const { getAllUsers, getUserById, addUser, deleteUserById, updateUserById, delet
 router.use(bodyParser.json());
 router.get('/users', getAllUsers);
 router.get('/user/:id', getUserById);
-router.post('/user', addUser);
+router.post('/addUser', addUser);
 router.delete('/user/:id', deleteUserById);
 // router.delete('/users', deleteAllUsers);
 router.put('/user/:id', updateUserById);

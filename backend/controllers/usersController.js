@@ -14,7 +14,7 @@ async function getAllUsers(req, res) {
         message: 'all users',
         data: users
       })
- 
+
     } else {
       res.status(400).json({ error: 'something went wrong' })
     }
@@ -31,9 +31,9 @@ async function addUser(req, res) {
   let mob = req.body.mobile;
   let sql = 'INSERT INTO users (username, email, mobile) VALUES (?, ?, ?)';
    await query(pool2, sql, [name, ema, mob]);
-  
+
       res.status(200).json({ message: 'User added successfully' });
-    
+
   } catch (err) {
     console.error('Error:', err);
     res.status(500).json({ error: 'Internal server error' });
