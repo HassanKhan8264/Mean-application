@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NetworkService } from '../network.service';
 @Component({
   selector: 'app-dashboard',
@@ -6,6 +6,8 @@ import { NetworkService } from '../network.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  @ViewChild('fileInput', { static: false })
+  fileInput!: ElementRef<any>;
 
 
   products: any[] = []
@@ -45,5 +47,21 @@ export class DashboardComponent {
       console.log('products', this.users);
 
     })
+  }
+  uploadImage() {
+    const fileInput = this.fileInput.nativeElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      const formData = new FormData();
+      formData.append('image', file);
+      console.log('image', file);
+      // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+      this.NetworkService.uploadImg(formData).subscribe((res:any) => {
+        console.log('image',res);
+
+      })
+
+
+    }
   }
 }

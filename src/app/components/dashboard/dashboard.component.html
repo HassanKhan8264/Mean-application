@@ -5,6 +5,12 @@
       <app-sidebar></app-sidebar>
     </div>
   </div>
+  <!-- <input type="file" #fileInput accept="image/*">
+  <button (click)="uploadImage()">Upload Image</button> -->
+  <form action="/uploads" method="POST" enctype="multipart/form-data">
+    <input type="file" #fileInput name="image">
+    <button type="submit" (click)="uploadImage()">Upload Image</button>
+  </form>
 
 <!--
   <div class="drop-down-outer" [class.green-background]="isShow" [class.white-background]="!isShow">

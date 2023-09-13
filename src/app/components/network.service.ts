@@ -47,4 +47,8 @@ export class NetworkService {
   }
 
 
+  // upload image
+  uploadImg(data:any) {
+    return this.http.post(`${this.apiUrl}/uploadImg`,data);
+  }
 }
